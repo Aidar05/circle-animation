@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="има.css">
     <title>Main page</title>
   </head>
 
   <body>
-  
 		<div class="loader">
-		<svg viewBox="0 0 80 80">
-		<circle id="test" cx="40" cy="40" r="32"></circle>
-		</svg>
+      <svg id="svg_1" viewBox="0 0 80 80">
+        <circle id="test" cx="40" cy="40" r="32"></circle>
+      </svg>
+
+    <button onclick="load()">Нажми</button>
 		</div>
-    <div class="ev">
-      <div class="circle"></div>
-      <button onclick="enlarge()">Увеличить</button>
-      <button onclick="reduce()">Уменьшить</button>
-      <button onclick="def()">Вернуть к дефолту</button>
 
 
-	
-    </div>
-
-    <script src="script.js"></script>
-	
-
+    <script>
+      function load(){
+        document.querySelector('#svg_1').style.display = 'block'
+      }
+    </script>
   </body>
 </html>
