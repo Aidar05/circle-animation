@@ -1,32 +1,31 @@
-body {
-  min-height: 100vh;
-  background: #f5f9ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .loader {
-  --path:red;
-  --duration: 5s;
+  --path:Red;
+  --duration: 3s;
   width: 44px;
   height: 44px;
   position: relative;
 }
 
 .loader svg {
-  display: none;
+  display: block;
   width: 100%;
   height: 100%;
 }
+.loader svg rect,
+.loader svg polygon,
 .loader svg circle {
   fill: none;
   stroke: var(--path);
-  stroke-width: 8px;
+  stroke-width: 10px;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
-
+.loader svg polygon {
+  stroke-dasharray: 145 76 145 76;
+  stroke-dashoffset: 0;
+  animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
+    infinite;
+}
 .loader svg rect {
   stroke-dasharray: 192 64 192 64;
   stroke-dashoffset: 0;
@@ -39,21 +38,37 @@ body {
   animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
     infinite;
 }
+.loader.triangle {
+  width: 48px;
+}
 
-@keyframes dotRect {
-  25% {
-    transform: translate(0, 0);
+@keyframes pathTriangle {
+  33% {
+    stroke-dashoffset: 74;
   }
-  50% {
-    transform: translate(18px, -18px);
-  }
-  75% {
-    transform: translate(0, -36px);
+  66% {
+    stroke-dashoffset: 147;
   }
   100% {
-    transform: translate(-18px, -18px);
+    stroke-dashoffset: 221;
   }
 }
+
+@keyframes pathRect {
+  25% {
+    stroke-dashoffset: 64;
+  }
+  50% {
+    stroke-dashoffset: 128;
+  }
+  75% {
+    stroke-dashoffset: 192;
+  }
+  100% {
+    stroke-dashoffset: 256;
+  }
+}
+
 @keyframes pathCircle {
   25% {
     stroke-dashoffset: 125;
@@ -72,3 +87,21 @@ body {
   display: inline-block;
   margin: 0 16px;
 }
+html {
+  -webkit-font-smoothing: antialiased;
+}
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background: #f5f9ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

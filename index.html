@@ -6,19 +6,33 @@
   </head>
 
   <body>
+  
+				<div class="loader">
+					<svg viewBox="0 0 80 80">
+						<circle id="test" cx="40" cy="40" r="32"></circle>
+					</svg>
+				</div>
+				<div class="loader triangle">
+				  <svg viewBox="0 0 86 80">
+					<polygon points="43 8 79 72 7 72"></polygon>
+				  </svg>
+				</div>
 		<div class="loader">
-      <svg id="svg_1" viewBox="0 0 80 80">
-        <circle id="test" cx="40" cy="40" r="32"></circle>
-      </svg>
-
-    <button onclick="load()">Нажми</button>
+		  <svg viewBox="0 0 80 80">
+			<rect x="8" y="8" width="64" height="64"></rect>
+		  </svg>
 		</div>
+    <div class="ev">
+      <div class="circle"></div>
+      <button onclick="enlarge()">Увеличить</button>
+      <button onclick="reduce()">Уменьшить</button>
+      <button onclick="def()">Вернуть к дефолту</button>
 
 
-    <script>
-      function load(){
-        document.querySelector('#svg_1').style.display = 'block'
-      }
-    </script>
+	
+    </div>
+
+    <script src="script.js"></script>
+	
   </body>
 </html>
